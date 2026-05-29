@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Foodie Hub</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+    }
+
+    header{
+      background:linear-gradient(to right, #ff6b00, #ff9900);
+      color:white;
+      text-align:center;
+      padding:25px;
+    }
+
+    header h1{
+      font-size:40px;
+    }
+
+    header p{
+      margin-top:10px;
+      font-size:18px;
+    }
+
+    .container{
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      flex-wrap:wrap;
+      padding:40px;
+    }
+
+    .card{
+      background:white;
+      width:300px;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:scale(1.05);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .content{
+      padding:20px;
+      text-align:center;
+    }
+
+    .content h2{
+      margin-bottom:10px;
+      color:#333;
+    }
+
+    .content p{
+      color:gray;
+      margin-bottom:15px;
+    }
+
+    .price{
+      font-size:24px;
+      color:green;
+      font-weight:bold;
+      margin-bottom:15px;
+    }
+
+    button{
+      background:#ff6b00;
+      color:white;
+      border:none;
+      padding:12px 20px;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#e65c00;
+    }
+
+    footer{
+      background:#222;
+      color:white;
+      text-align:center;
+      padding:15px;
+      margin-top:20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🍕 Foodie Hub</h1>
+    <p>Delicious food delivered to your home</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Burger -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1000" alt="Burger">
+
+      <div class="content">
+        <h2>Cheese Burger</h2>
+        <p>Loaded with cheese and crispy patties.</p>
+        <div class="price">₹149</div>
+
+        <button onclick="orderFood('Cheese Burger',149)">
+          Order Now
+        </button>
+      </div>
+    </div>
+
+    <!-- Pizza -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1000" alt="Pizza">
+
+      <div class="content">
+        <h2>Italian Pizza</h2>
+        <p>Hot and cheesy pizza with toppings.</p>
+        <div class="price">₹299</div>
+
+        <button onclick="orderFood('Italian Pizza',299)">
+          Order Now
+        </button>
+      </div>
+    </div>
+
+    <!-- Pasta -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=1000" alt="Pasta">
+
+      <div class="content">
+        <h2>Creamy Pasta</h2>
+        <p>White sauce pasta with herbs and cheese.</p>
+        <div class="price">₹249</div>
+
+        <button onclick="orderFood('Creamy Pasta',249)">
+          Order Now
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 Foodie Hub | Order Online</p>
+  </footer>
+
+  <script>
+    function orderFood(food, price){
+
+      let quantity = prompt("Enter quantity for " + food);
+
+      if(quantity == null || quantity == ""){
+        alert("Order Cancelled");
+        return;
+      }
+
+      let address = prompt("Enter your delivery address");
+
+      if(address == null || address == ""){
+        alert("Address is required!");
+        return;
+      }
+
+      let total = quantity * price;
+
+      alert(
+        "✅ Order Successful!\n\n" +
+        "Food: " + food +
+        "\nQuantity: " + quantity +
+        "\nTotal Price: ₹" + total +
+        "\nDelivery Address: " + address
+      );
+    }
+  </script>
+
+</body>
+</html>
